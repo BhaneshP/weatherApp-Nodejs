@@ -8,9 +8,12 @@ const forecast=(latitude,longitude,callback)=>{
         }else if(body.message){
             callback('Unable to find that location.Try another search',undefined)
         }else{
-            callback(undefined,'It is currently '+body.main.temp+' degrees out there. '+body.weather[0].main)
+            console.log(body.main)
+            callback(undefined,'It is currently '+body.main.temp+' degrees out there. The humidity level is '+body.main.humidity+'.\n The high today is '+body.main.temp_max+' with a low of '+body.main.temp_min+'. '+body.weather[0].main)
         }
     })
 }
+
+
 
 module.exports=forecast
